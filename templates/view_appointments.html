@@ -1,0 +1,57 @@
+<!-- <html>
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+<h2>Appointments</h2>
+<ul>
+{% for appt in appointments %}
+    <li>Patient ID: {{ appt[1] }}, Date: {{ appt[3] }}, Status: {{ appt[4] }}</li>
+{% endfor %}
+</ul>
+</body>
+</html> -->
+
+<html>
+<head>
+    <title>Doctor Appointments</title>
+</head>
+<body>
+    <!-- Flash message display -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; margin: 10px 0; border-radius: 5px;">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <h2 style="margin-bottom: 20px;">Today's Appointments</h2>
+    {% if appointments %}
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 10px; border: 1px solid #ccc;">Appointment ID</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Patient ID</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Date & Time</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appt in appointments %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ appt[0] }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ appt[1] }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ appt[3] }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ appt[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments scheduled for today.</p>
+    {% endif %}
+</body>
+</html>

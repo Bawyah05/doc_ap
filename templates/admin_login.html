@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+
+    <div style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 320px;">
+        <h2 style="text-align: center;">Admin Login</h2>
+        <form method="POST">
+            <div style="margin-bottom: 15px;">
+                <label for="username">Username:</label><br>
+                <input type="text" name="username" id="username" placeholder="Admin Username" required
+                       style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" placeholder="Password" required
+                       style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer;">Login</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div style="margin-top: 15px; color: red;">
+                    <ul style="padding-left: 20px;">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>

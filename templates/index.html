@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Hospital Home</title>
+</head>
+<body>
+    <h1>Welcome to Our Hospital</h1>
+    <a href="/login">Login</a>
+    <h2>Doctors Available</h2>
+    <ul>
+    {% for doctor in doctors %}
+        <li>{{ doctor[0] }} - {{ doctor[1] }} ({{ doctor[2] }} yrs experience)</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- templates/view_doctors.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Details</title>
+</head>
+<body>
+    <h2>All Doctor Details</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Specialization</th><th>Experience</th><th>Contact</th><th>Available Slots</th>
+        </tr>
+        {% for doc in doctors %}
+        <tr>
+            <td>{{ doc[0] }}</td>
+            <td>{{ doc[1] }}</td>
+            <td>{{ doc[2] }}</td>
+            <td>{{ doc[3] }}</td>
+            <td>{{ doc[4] }}</td>
+            <td>{{ doc[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/admin/dashboard"><button>Back</button></a>
+</body>
+</html>

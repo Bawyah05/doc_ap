@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Medical History</title>
+</head>
+<body>
+<h2>Medical History for {{ patient[1] if patient else 'You' }}</h2>
+<ul>
+{% for record in records %}
+    <li>{{ record[1] }} (Uploaded on {{ record[2] }})</li>
+{% endfor %}
+</ul>
+</body>
+</html>

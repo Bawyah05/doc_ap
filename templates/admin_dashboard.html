@@ -1,0 +1,37 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Admin Dashboard</h1>
+
+    <div>
+        <a href="/admin/add_doctor_form"><button>Add Doctor</button></a>
+        <a href="/admin/add_patient_form"><button>Add Patient</button></a>
+        <a href="/admin/view_doctors"><button>View Doctors</button></a>
+        <a href="/admin/view_patients"><button>View Patients</button></a>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+    <hr>
+
+    <form action="/admin/change_password" method="POST">
+        <h3>Change Admin Password:</h3>
+        <input type="password" name="new_password" placeholder="New Password" required>
+        <button type="submit">Update Password</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
